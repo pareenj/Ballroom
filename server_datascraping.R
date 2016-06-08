@@ -170,7 +170,7 @@ for(i in event_id)
       event_i_couple_athlete_memberid_male = c(event_i_couple_athlete_memberid_male, couple_ij_athlete_memberid_male)
       event_i_couple_athlete_memberid_female = c(event_i_couple_athlete_memberid_female, couple_ij_athlete_memberid_female)
       
-      Sys.sleep(0.5)
+      #Sys.sleep(0.5)
       
       if(!(couple_ij_athlete_memberid_male %in% Athletes$athlete_memberid))
       {
@@ -188,7 +188,7 @@ for(i in event_id)
         athlete_ij_male = data.frame(athlete_memberid = athlete_ij_male_id, athlete_name = athlete_ij_male_name, athlete_surname = athlete_ij_male_surname, athlete_sex = athlete_ij_male_sex, athlete_nationality = athlete_ij_male_nationality, athlete_agegroup = athlete_ij_male_agegroup, athlete_division = athlete_ij_male_division, athlete_status = athlete_ij_male_status, athlete_memberof = athlete_ij_male_memberof)
         Athletes = rbind(Athletes, athlete_ij_male)
         
-        Sys.sleep(0.5)
+        #Sys.sleep(0.5)
       }
       
       if(!(couple_ij_athlete_memberid_female %in% Athletes$athlete_memberid))
@@ -207,9 +207,9 @@ for(i in event_id)
         athlete_ij_female = data.frame(athlete_memberid = athlete_ij_female_id, athlete_name = athlete_ij_female_name, athlete_surname = athlete_ij_female_surname, athlete_sex = athlete_ij_female_sex, athlete_nationality = athlete_ij_female_nationality, athlete_agegroup = athlete_ij_female_agegroup, athlete_division = athlete_ij_female_division, athlete_status = athlete_ij_female_status, athlete_memberof = athlete_ij_female_memberof)
         Athletes = rbind(Athletes, athlete_ij_female)
         
-        Sys.sleep(0.5)
+        #Sys.sleep(0.5)
       }
-      Sys.sleep(0.5)
+      #Sys.sleep(0.5)
     }
     
     else
@@ -233,7 +233,7 @@ for(i in event_id)
   event_i_round = data.frame(round_name = event_i_round_round_name, couples_count = event_i_round_couples_count, event_id = event_i_round_event_id)
   Rounds = rbind(Rounds, event_i_round)
   
-  Sys.sleep(0.5)
+  #Sys.sleep(0.5)
   
   event_i_judges_url = paste0(event_i_info_url, "/Officials")
   # download.file(event_i_judges_url, "Officials.html")
@@ -245,7 +245,7 @@ for(i in event_id)
   event_i_judges_country = event_i_judges_html %>% html_nodes(css = "thead+ tbody .name+ td") %>% html_text()
   event_i_judges_identifier = event_i_judges_html %>% html_nodes(css = "td:nth-child(3)") %>% html_text()
   
-  Sys.sleep(0.5)
+  #Sys.sleep(0.5)
   
   for(k in 1:length(event_i_judges_id))
   {
@@ -265,7 +265,7 @@ for(i in event_id)
       judge_ik = data.frame(judge_id = judge_ik_id, judge_name = judge_ik_name, judge_surname = judge_ik_surname, judge_country = judge_ik_country, judge_nationality = judge_ik_nationality, judge_memberof = judge_ik_memberof, judge_license = judge_ik_license)
       Judges = rbind(Judges, judge_ik)
       
-      Sys.sleep(0.5)
+      #Sys.sleep(0.5)
     }
   }
   
@@ -377,4 +377,3 @@ write.csv(Couples, file = "Couples.csv")
 write.csv(MarksNonFinal, file = "MarksNonFinal.csv")
 write.csv(MarksFinal, file = "MarksFinal.csv")
 write.csv(Judges, file = "Judges.csv")
-
